@@ -32,22 +32,20 @@ const pokemonList = [
 function App() {
   const [thePokemon, setThePokemon] = useState(0);
 
-  function changePokemon(e) {
-    if (e === "previous" && thePokemon > 0) {
-      setThePokemon(thePokemon - 1);
-    } else if (e === "next" && thePokemon < pokemonList.length - 1) {
-      setThePokemon(thePokemon + 1);
-    }
-  }
+  // function changePokemon(e) {
+  //   if (e === "previous" && thePokemon > 0) {
+  //     setThePokemon(thePokemon - 1);
+  //   } else if (e === "next" && thePokemon < pokemonList.length - 1) {
+  //     setThePokemon(thePokemon + 1);
+  //   }
+  // }
 
   return (
     <div>
       <PokemonCard pokemon={pokemonList[thePokemon]} />
       <NavBar
-        clickPrevious = {() => changePokemon("previous")}
-        clickNext = {() => changePokemon("next")}
-        disabledPrevious = {thePokemon === 0}
-        disabledNext = {thePokemon === pokemonList.length-1}
+         pokemonList={pokemonList}
+         setThePokemon={setThePokemon}
       />
     </div>
   );

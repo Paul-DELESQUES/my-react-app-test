@@ -1,5 +1,4 @@
 function PokemonCard({pokemon}) {
-    console.log(pokemon);
   
     return (
       <figure>

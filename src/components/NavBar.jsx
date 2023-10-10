@@ -1,16 +1,15 @@
 import React from "react";
 
-function NavBar({ clickPrevious, clickNext, disabledPrevious, disabledNext }) {
-    return (
-      <div>
-        <button onClick={clickPrevious} disabled={disabledPrevious}>
-          Précédent
+function NavBar({pokemonList, setThePokemon}) {
+  return(
+    <div>
+      {pokemonList.map((pokemon, i) => (
+        <button key = {i} onClick={() => setThePokemon(i)}>
+          {pokemon.name}
         </button>
-        <button onClick={clickNext} disabled={disabledNext}>
-          Suivant
-        </button>
-      </div>
-    );
-  }
-  
-  export default NavBar;
+      ))}
+    </div>
+  )
+}
+
+export default NavBar;
