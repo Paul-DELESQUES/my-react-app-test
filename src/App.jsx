@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import PokemonCard from "./components/PokemonCard.jsx";
+import NavBar from './components/NavBar.jsx';
 
 const pokemonList = [
   {
@@ -42,12 +43,12 @@ function App() {
   return (
     <div>
       <PokemonCard pokemon={pokemonList[thePokemon]} />
-      <button onClick={function() { changePokemon("previous"); }} disabled={thePokemon === 0}>
-        Précédent
-      </button>
-      <button onClick={function() { changePokemon("next"); }} disabled={thePokemon === pokemonList.length - 1}>
-        Suivant
-      </button>
+      <NavBar
+        clickPrevious = {() => changePokemon("previous")}
+        clickNext = {() => changePokemon("next")}
+        disabledPrevious = {thePokemon === 0}
+        disabledNext = {thePokemon === pokemonList.length-1}
+      />
     </div>
   );
 }
