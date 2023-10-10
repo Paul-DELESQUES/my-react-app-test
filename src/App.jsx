@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import PokemonCard from "./components/PokemonCard.jsx";
 import NavBar from './components/NavBar.jsx';
@@ -40,12 +40,17 @@ function App() {
   //   }
   // }
 
+  useEffect(() => {
+    alert("Hello, Pokemon Trainer :)")
+  }, [])
+
   return (
     <div>
       <PokemonCard pokemon={pokemonList[thePokemon]} />
       <NavBar
          pokemonList={pokemonList}
          setThePokemon={setThePokemon}
+         thePokemon={thePokemon}
       />
     </div>
   );
