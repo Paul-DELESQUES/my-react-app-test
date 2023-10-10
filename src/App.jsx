@@ -1,5 +1,9 @@
 import PokemonCard from "./components/PokemonCard.jsx"
 import React, { useState } from 'react';
+import PropTypes from 'prop-types'
+
+
+
 const pokemonList = [
   {
     name: "bulbasaur",
@@ -10,15 +14,17 @@ const pokemonList = [
     name: "mew", 
   },
 ]
+
 function App() {
-  const [thePokemon, thePokemon2] = useState(pokemonList[0]);
+  const [thePokemon, setThePokemon] = useState(pokemonList[0]);
 
   function changePokemon() {
-    const i = pokemonList.findIndex(e => e.name === thePokemon.name)
+    const i = pokemonList.findIndex(e => e.name === thePokemon.name);
     const j = (i + 1) % pokemonList.length;
     
-    thePokemon2(pokemonList[j])
+    setThePokemon(pokemonList[j]);
   }
+
   return (
     <div>
       <PokemonCard pokemon={thePokemon} />
@@ -26,5 +32,13 @@ function App() {
     </div>
   );
 }
+
+App.propTypes = {
+  pokemon: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    img: PropTypes.string,
+  })
+};
+
 
 export default App;
