@@ -30,7 +30,7 @@ const pokemonList = [
 ];
 
 function App() {
-  const [thePokemon, setThePokemon] = useState(0);
+  const [thePokemon, setThePokemon] = useState[0];
 
   // function changePokemon(e) {
   //   if (e === "previous" && thePokemon > 0) {
